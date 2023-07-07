@@ -7,7 +7,7 @@ package main
 
 import "fmt"
 
-func sender(ch chan int, done chan string) {
+func sender(ch chan<- int, done chan<- string) {
 	for i := 0; i < 5; i++ {
 		ch <- i
 	}
@@ -15,7 +15,7 @@ func sender(ch chan int, done chan string) {
 	done <- "Sender done"
 }
 
-func receiver(ch chan int, done chan string) {
+func receiver(ch <-chan int, done chan<- string) {
 	for v := range ch {
 		fmt.Println("Receiver: Received ", v)
 	}
