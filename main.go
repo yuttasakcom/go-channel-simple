@@ -15,6 +15,7 @@ func receiver(ch chan int, done chan string) {
 		fmt.Println("Receiver: Received ", v)
 	}
 	done <- "Receiver done"
+	close(done)
 }
 
 func main() {
@@ -24,6 +25,7 @@ func main() {
 	go sender(ch, done)
 	go receiver(ch, done)
 
-	fmt.Printf("%#v\n", <-done)
-	fmt.Printf("%#v\n", <-done)
+	for v := range done {
+		fmt.Println(v)
+	}
 }
