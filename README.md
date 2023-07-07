@@ -34,3 +34,15 @@ func main() {
 }
 
 ```
+
+## Output
+
+```bash
+Receiver: Received  0
+Receiver: Received  1
+Receiver: Received  2
+Receiver: Received  3
+"Sender done"
+Receiver: Received  4
+"Receiver done"
+```
